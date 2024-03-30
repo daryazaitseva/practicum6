@@ -32,11 +32,12 @@ tr.forward(abs(y3 - y4))
 tr.penup()
 
 tr.goto(100, 100)
-if (abs(x1 - x2) > abs(x1 - x3)) and (abs(y1 - y2) > abs(y1 - y3)):
+if abs(x1 > x4 or x2 < x3 or y1 < y4 or y2 > y3):
     tr.write('Прямоугольники лежат вне друг друга, не касаясь')
-elif (abs(x1 - x2) == abs(x1 - x3)) or (abs(y1 - y2) == abs(y1 - y3)):
+elif abs(x1 == x4 or x2 == x3 or y1 == y4 or y2 == y3):
     tr.write('Прямоугольники имеют касание')
-elif (abs(x1 - x2) < abs(x1 - x3)) or (abs(y1 - y2) < abs(y1 - y3)):
-    tr.write('Прямоугольники имеют касание')
-elif (abs(x1 - x2) < abs(x1 - x3)) and (abs(y1 - y2) == abs(y1 - y3)):
-    tr.write('Один прямоугольник лежит внутри другого, не касаясь')
+elif abs(x1 > x3 and x2 < x4 and y1 < y3 and y2 > y4):
+    tr.write('Один лежит внутри другого не касаясь')
+elif abs(x1 > x4 or x2 < x3 or y1 < y4 or y2 > y3) and not abs(x1 == x4 or x2 == x3
+                                                                or y1 == y4 or y2 == y3):
+    tr.write('Имеют пересечение')
